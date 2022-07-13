@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>타입스크립트_1 | hello world</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="타입스크립트_1" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="타입스크립트를 공부하면서 알게 된 것들. (feat. [캡틴판교의 타입스크립트 입문 강의 - 인프런]https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299)" />
+<meta property="og:description" content="타입스크립트를 공부하면서 알게 된 것들. (feat. [캡틴판교의 타입스크립트 입문 강의 - 인프런]https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299)" />
+<link rel="canonical" href="https://khakisage.github.io/khakisage_blog/typescript/javascript/jsdoc/2022/07/13/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8_1.html" />
+<meta property="og:url" content="https://khakisage.github.io/khakisage_blog/typescript/javascript/jsdoc/2022/07/13/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8_1.html" />
+<meta property="og:site_name" content="hello world" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-13T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="타입스크립트_1" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-07-13T00:00:00-05:00","datePublished":"2022-07-13T00:00:00-05:00","description":"타입스크립트를 공부하면서 알게 된 것들. (feat. [캡틴판교의 타입스크립트 입문 강의 - 인프런]https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299)","headline":"타입스크립트_1","mainEntityOfPage":{"@type":"WebPage","@id":"https://khakisage.github.io/khakisage_blog/typescript/javascript/jsdoc/2022/07/13/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8_1.html"},"url":"https://khakisage.github.io/khakisage_blog/typescript/javascript/jsdoc/2022/07/13/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8_1.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/khakisage_blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://khakisage.github.io/khakisage_blog/feed.xml" title="hello world" /><link rel="shortcut icon" type="image/x-icon" href="/khakisage_blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/khakisage_blog/">hello world</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/khakisage_blog/about/">About Me</a><a class="page-link" href="/khakisage_blog/gitInfo/">gitInfo</a><a class="page-link" href="/khakisage_blog/search/">Search</a><a class="page-link" href="/khakisage_blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">타입스크립트_1</h1><p class="page-description">타입스크립트를 공부하면서 알게 된 것들. (feat. [캡틴판교의 타입스크립트 입문 강의 - 인프런]https://www.inflearn.com/course/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%85%EB%AC%B8?inst=f1ae9299)</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-07-13T00:00:00-05:00" itemprop="datePublished">
+        Jul 13, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/khakisage_blog/categories/#typescript">typescript</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/khakisage_blog/categories/#javascript">javascript</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/khakisage_blog/categories/#JSDoc">JSDoc</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#타입스크립트란">타입스크립트란?</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#example">example</a></li>
+<li class="toc-entry toc-h2"><a href="#jsdoc--ts-check">JSDoc &amp; @ts-check</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#결론">결론</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul><h1 id="타입스크립트란">
+<a class="anchor" href="#%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%9E%80" aria-hidden="true"><span class="octicon octicon-link"></span></a>타입스크립트란?</h1>
+<p>자바스크립트에 ‘타입’을 적용한 언어로, 자바스크립트의 확장된 개념이라고 할 수 있다.
+타입스크립트는 자바스크립트와 비교하여 두가지 강점을 가진다.</p>
+<ul>
+  <li>에러 방지</li>
+  <li>자동 완성</li>
+</ul>
+
+<h2 id="example">
+<a class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>example</h2>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sum</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="c1">// 50</span>
+<span class="nx">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="dl">"</span><span class="s2">30</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// 2030</span>
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="nx">result</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">();</span>
+</code></pre></div></div>
+<p>자바스크립트의 경우, sum 함수를 작성하였을 때, 함수의 인자에 숫자가 아닌 문자열이 들어와도 일단 작동은 된다. 다만, 자동으로 문자열로 인식되므로, “2030”으로 출력된다.</p>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sum</span> <span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="c1">// 50</span>
+<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// "20"은 문자열이므로 b 에 할당될 수 없다는 에러가 발생한다.</span>
+<span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
+<span class="nx">result</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">();</span>
+</code></pre></div></div>
+<p>타입스크립트의 경우, sum 함수 작성 단계에서 함수의 인자들의 타입을 미리 정해주었기 때문에, 인자에 문자열이 들어오게 되면, 에러가 발생한다.</p>
+
+<p>첫째로, 자바스크립트의 경우에는 에디터 상에서 잘못된 점을 발견할 수 없고, 브라우저의 콘솔창에서 확인이 가능하다.
+하지만, 타입스크립트의 경우에는 에디터 상에서 오탈자나 잘못된 타입의 인자가 들어온다면 에러가 발생했다는 표시가 나와 에러를 사전에 방지할 수 있다는 장점이 있다.</p>
+
+<p>둘째로, 자바스크립트의 경우 sum 함수의 결과를 result에 할당하였을 때, result에서 toLocaleString()라는 메서드를 작성 시, 자동완성이 나오지 않으며 직접 다 작성을 해주어야 한다.
+(이 과정에서, 오류가 발생할지는 미지수이다.)
+하지만, 타입스크립트의 경우에는 자바스크립트와 동일하게 작성 시, toLo까지만 입력해도 자동완성되는 메서드가 표시된다. (이 과정에서, 오류가 발생할 확률은 자바스크립트보다 현저히 낮다.)</p>
+
+<h2 id="jsdoc--ts-check">
+<a class="anchor" href="#jsdoc--ts-check" aria-hidden="true"><span class="octicon octicon-link"></span></a>JSDoc &amp; @ts-check</h2>
+<p>앞서 설명한 타입스크립트로 작성을 하지 않더라도, 자바스크립트 환경에서 ‘JSDoc’과 ‘@ts-check’를 이용해서 타입스크립트와 유사한 기능을 사용할 수 있다.</p>
+
+<p>###JSDoc이란?
+공식문서에 따르면, JavaScript 용 API 문서 생성기라고 한다. 다시 말하자면, 흔히 API 문서를 메뉴판에 비유하는 것처럼 JS파일에서 작성되는 모듈, 메서드, 매개변수 등에 보다 자세한 사용방법을 첨부하여,
+해당 JS파일에서 ‘이 모듈은 어떻게 사용하셔야 하고, 이 메서드에 인자에는 숫자만 혹은 문자열만 넣어주셔야 오류가 발생하지 않습니다’ 라고 설명해주는 용도로 생각된다.
+기본적인 사용방법은</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+* @생성자 를 넣어서 아래의 코드에 대한 사용 방법을 첨부한다. 생성자는 공식문서에 보다 자세하게 나와있다.
+*/</span>
+</code></pre></div></div>
+<p>위에서 예시로 든 sum 함수를 ‘JSDoc’과 ‘@ts-check’를 사용하여 다시 작성한다면 다음과 같다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//@ts-check</span>
+
+<span class="cm">/**
+ * @param {number} a 첫번째 숫자
+ * @param {number} b 두번째 숫자
+ */</span>
+
+<span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// 타입스크립트와 마찬가지로 에디터 상에서 오류 표시를 확인할 수 있다.</span>
+</code></pre></div></div>
+<p>VSCode 상에서 함수와 오류는 다음과 같이 표시된다.
+<img src="./images/ts_1.png" alt="ts_1"></p>
+
+<h3 id="결론">
+<a class="anchor" href="#%EA%B2%B0%EB%A1%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>결론</h3>
+<p>JS파일에서도 ‘JSDoc’ 과 ‘@ts-check’의 조합으로, JS 환경에서도 타입스크립트와 비슷한 느낌(?)으로 사용할 수 있었다.
+하지만, 위의 환경으로 작성하는 것보다, 타입스크립트 환경에서 작성하는 것이 보다 덜 힘들게 작성할 수 있고, 보기에도 더 깔끔해보인다.
+물론, 내가 만들었던 프로젝트를 TS로 리팩토링하는 과정에서 많은 어려움이 있겠지만 이 시간들이 나에게 큰 도움이 될 것이라고 믿는다.</p>
+
+<blockquote>
+  <p>Stay Focused!</p>
+</blockquote>
+
+
+  </div><a class="u-url" href="/khakisage_blog/typescript/javascript/jsdoc/2022/07/13/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8_1.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/khakisage_blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/khakisage_blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/khakisage_blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/khakisage_blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/khakisage_blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
