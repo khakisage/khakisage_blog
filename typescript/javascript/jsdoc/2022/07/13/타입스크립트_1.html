@@ -114,8 +114,10 @@ window.onload = wrap_img;
 </li>
 </ul><h1 id="타입스크립트란">
 <a class="anchor" href="#%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EB%9E%80" aria-hidden="true"><span class="octicon octicon-link"></span></a>타입스크립트란?</h1>
+
 <p>자바스크립트에 ‘타입’을 적용한 언어로, 자바스크립트의 확장된 개념이라고 할 수 있다.
 타입스크립트는 자바스크립트와 비교하여 두가지 강점을 가진다.</p>
+
 <ul>
   <li>에러 방지</li>
   <li>자동 완성</li>
@@ -123,23 +125,27 @@ window.onload = wrap_img;
 
 <h2 id="example">
 <a class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>example</h2>
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sum</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="nx">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="c1">// 50</span>
-<span class="nx">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="dl">"</span><span class="s2">30</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// 2030</span>
+<span class="nx">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span> <span class="c1">// 50</span>
+<span class="nx">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="dl">"</span><span class="s2">30</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// 2030</span>
 <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
 <span class="nx">result</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">();</span>
 </code></pre></div></div>
+
 <p>자바스크립트의 경우, sum 함수를 작성하였을 때, 함수의 인자에 숫자가 아닌 문자열이 들어와도 일단 작동은 된다. 다만, 자동으로 문자열로 인식되므로, “2030”으로 출력된다.</p>
-<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sum</span> <span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">:</span> <span class="kr">number</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="kr">number</span><span class="p">):</span> <span class="kr">number</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="nx">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span> <span class="c1">// 50</span>
-<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// "20"은 문자열이므로 b 에 할당될 수 없다는 에러가 발생한다.</span>
+<span class="nx">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span> <span class="c1">// 50</span>
+<span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// "20"은 문자열이므로 b 에 할당될 수 없다는 에러가 발생한다.</span>
 <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">);</span>
 <span class="nx">result</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">();</span>
 </code></pre></div></div>
+
 <p>타입스크립트의 경우, sum 함수 작성 단계에서 함수의 인자들의 타입을 미리 정해주었기 때문에, 인자에 문자열이 들어오게 되면, 에러가 발생한다.</p>
 
 <p>첫째로, 자바스크립트의 경우에는 에디터 상에서 잘못된 점을 발견할 수 없고, 브라우저의 콘솔창에서 확인이 가능하다.
@@ -151,17 +157,21 @@ window.onload = wrap_img;
 
 <h2 id="jsdoc--ts-check">
 <a class="anchor" href="#jsdoc--ts-check" aria-hidden="true"><span class="octicon octicon-link"></span></a>JSDoc &amp; @ts-check</h2>
+
 <p>앞서 설명한 타입스크립트로 작성을 하지 않더라도, 자바스크립트 환경에서 ‘JSDoc’과 ‘@ts-check’를 이용해서 타입스크립트와 유사한 기능을 사용할 수 있다.</p>
 
 <p>###JSDoc이란?
 공식문서에 따르면, JavaScript 용 API 문서 생성기라고 한다. 다시 말하자면, 흔히 API 문서를 메뉴판에 비유하는 것처럼 JS파일에서 작성되는 모듈, 메서드, 매개변수 등에 보다 자세한 사용방법을 첨부하여,
 해당 JS파일에서 ‘이 모듈은 어떻게 사용하셔야 하고, 이 메서드에 인자에는 숫자만 혹은 문자열만 넣어주셔야 오류가 발생하지 않습니다’ 라고 설명해주는 용도로 생각된다.
 기본적인 사용방법은</p>
+
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
-* @생성자 를 넣어서 아래의 코드에 대한 사용 방법을 첨부한다. 생성자는 공식문서에 보다 자세하게 나와있다.
-*/</span>
+ * @생성자 를 넣어서 아래의 코드에 대한 사용 방법을 첨부한다. 생성자는 공식문서에 보다 자세하게 나와있다.
+ */</span>
 </code></pre></div></div>
+
 <p>위에서 예시로 든 sum 함수를 ‘JSDoc’과 ‘@ts-check’를 사용하여 다시 작성한다면 다음과 같다.</p>
+
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//@ts-check</span>
 
 <span class="cm">/**
@@ -174,11 +184,13 @@ window.onload = wrap_img;
 <span class="p">}</span>
 <span class="nx">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="dl">"</span><span class="s2">20</span><span class="dl">"</span><span class="p">);</span> <span class="c1">// 타입스크립트와 마찬가지로 에디터 상에서 오류 표시를 확인할 수 있다.</span>
 </code></pre></div></div>
+
 <p>VSCode 상에서 함수와 오류는 다음과 같이 표시된다.
-<img src="./images/ts_1.png" alt="ts_1"></p>
+<img src="../images/ts_1.png" alt="ts_1"></p>
 
 <h3 id="결론">
 <a class="anchor" href="#%EA%B2%B0%EB%A1%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>결론</h3>
+
 <p>JS파일에서도 ‘JSDoc’ 과 ‘@ts-check’의 조합으로, JS 환경에서도 타입스크립트와 비슷한 느낌(?)으로 사용할 수 있었다.
 하지만, 위의 환경으로 작성하는 것보다, 타입스크립트 환경에서 작성하는 것이 보다 덜 힘들게 작성할 수 있고, 보기에도 더 깔끔해보인다.
 물론, 내가 만들었던 프로젝트를 TS로 리팩토링하는 과정에서 많은 어려움이 있겠지만 이 시간들이 나에게 큰 도움이 될 것이라고 믿는다.</p>
@@ -186,7 +198,6 @@ window.onload = wrap_img;
 <blockquote>
   <p>Stay Focused!</p>
 </blockquote>
-
 
   </div><a class="u-url" href="/khakisage_blog/typescript/javascript/jsdoc/2022/07/13/%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8_1.html" hidden></a>
 </article>
